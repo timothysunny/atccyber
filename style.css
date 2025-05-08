@@ -1,0 +1,223 @@
+/* GitHub Dark Theme Color Variables */
+:root {
+    --color-canvas-default: #0d1117;
+    --color-fg-default: #e6edf3;
+    --color-fg-muted: #7d8590; /* Adjusted for GitHub's actual muted text */
+    --color-accent-fg: #58a6ff;
+    --color-accent-emphasis: #1f6feb; /* For active/focused links if needed */
+    
+    --color-input-bg: #010409;
+    --color-input-border: #30363d; /* Standard border */
+    --color-input-focus-border: #58a6ff;
+    --color-input-focus-shadow: rgba(88, 166, 255, 0.3); /* Adjusted alpha for focus shadow */
+
+    --color-btn-primary-bg: #238636;
+    --color-btn-primary-text: #ffffff;
+    --color-btn-primary-border: rgba(240, 246, 252, 0.1);
+    --color-btn-primary-hover-bg: #2ea043;
+    --color-btn-primary-hover-border: rgba(240, 246, 252, 0.1);
+    --color-btn-primary-shadow: 0 0 transparent; /* GitHub buttons don't have a default shadow */
+    --color-btn-primary-inset-shadow: 0 0 transparent;
+
+    --color-login-box-bg: #161b22;
+    --color-login-box-border: #30363d; /* Made slightly more prominent, matching input border */
+
+    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-size-small: 12px;
+    --font-size-medium: 14px;
+    --font-size-large: 24px;
+}
+
+/* Default properties */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-system);
+}
+
+a {
+    color: var(--color-accent-fg);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: var(--color-accent-emphasis); /* Slightly darker blue on hover */
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-canvas-default);
+    display: flex;
+    flex-direction: column; /* To stack main content and footer */
+    justify-content: center; /* Vertically center main content initially */
+    align-items: center;
+    padding: 20px 10px; /* Padding for small screens */
+    color: var(--color-fg-default);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 308px; /* GitHub's actual auth form width */
+    align-items: center;
+    margin: auto; /* Helps with centering if body isn't filling height */
+}
+
+.logo-container {
+    color: var(--color-fg-default); /* Logo color changed to white/default text */
+    margin-bottom: 24px; /* Increased margin below logo */
+}
+
+.github-head {
+    font-size: var(--font-size-large);
+    font-weight: 400; /* GitHub uses a lighter font weight for this heading */
+    letter-spacing: -0.5px;
+    color: var(--color-fg-default);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.login-wrapper {
+    width: 100%;
+    background-color: var(--color-login-box-bg);
+    border: 1px solid var(--color-login-box-border);
+    border-radius: 6px;
+    padding: 16px; /* GitHub's padding for this box */
+    margin-bottom: 16px; /* Space between login box and "New to GitHub?" box */
+}
+
+.input-box {
+    width: 100%;
+    margin-bottom: 16px;
+}
+.input-box:last-of-type { /* No margin for the last input box before button */
+    margin-bottom: 16px; /* Space before button */
+}
+
+.input-label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.input-label {
+    font-size: var(--font-size-medium);
+    font-weight: 400; /* GitHub's label font weight */
+    color: var(--color-fg-default);
+    display: block; /* Ensure label takes full width if not in flex container */
+}
+/* If label is not part of a flex container with space-between: */
+.input-box > .input-label {
+    margin-bottom: 8px;
+}
+
+
+.forgot-password-link {
+    font-size: var(--font-size-small);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    background-color: var(--color-input-bg);
+    color: var(--color-fg-default);
+    border: 1px solid var(--color-input-border);
+    border-radius: 6px;
+    font-size: var(--font-size-medium);
+    line-height: 20px;
+    padding: 5px 12px;
+    outline: none;
+    box-shadow: var(--color-btn-primary-inset-shadow); /* Match button shadow for consistency */
+    transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--color-input-focus-border);
+    box-shadow: 0 0 0 3px var(--color-input-focus-shadow);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 5px 16px;
+    font-size: var(--font-size-medium);
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-bg);
+    border: 1px solid var(--color-btn-primary-border);
+    border-radius: 6px;
+    box-shadow: var(--color-btn-primary-shadow), var(--color-btn-primary-inset-shadow);
+    cursor: pointer;
+    appearance: none; /* Removes default browser styling */
+    transition: background-color 80ms cubic-bezier(0.33, 1, 0.68, 1), border-color 80ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.submit-btn:hover {
+    background-color: var(--color-btn-primary-hover-bg);
+    border-color: var(--color-btn-primary-hover-border);
+    text-decoration: none;
+}
+.submit-btn:active {
+    background-color: hsl(137, 57%, 33%); 
+}
+
+
+.info-create-account {
+    font-size: var(--font-size-medium);
+    border: 1px solid var(--color-login-box-border);
+    padding: 20px 16px; 
+    width: 100%;
+    border-radius: 6px;
+    text-align: center;
+    background-color: transparent;
+    color: var(--color-fg-default);
+}
+
+.page-footer {
+    width: 100%;
+    max-width: 808px; 
+    margin-top: 40px; 
+    padding-bottom: 24px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    gap: 8px 16px; 
+}
+
+.footer-links li a {
+    font-size: var(--font-size-small);
+    color: var(--color-fg-muted);  
+}
+.footer-links li a.contact-link {
+    color: var(--color-fg-muted); 
+}
+.footer-links li a.contact-link:hover {
+    color: var(--color-accent-fg); 
+    text-decoration: underline;
+}
+
+
+
+@media screen and (max-width: 360px) {
+    .main-container, .page-footer {
+        width: 100%;
+    }
+
+    .github-head {
+        font-size: 22px;
+    }
+}
